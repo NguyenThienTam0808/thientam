@@ -1,6 +1,9 @@
 module Samurai
     class DashboardController < ApplicationController
-        def index
-        end
+      #authorize_resource class: false
+  
+      def index
+       
+      end
     end
 end

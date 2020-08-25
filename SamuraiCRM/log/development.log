@@ -1,26 +1,44 @@
-Started GET "/" for ::1 at 2020-08-15 10:29:44 +0700
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home/tammy/.rvm/gems/ruby-2.6.3/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/tammy/.rvm/gems/ruby-2.6.3/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (19.2ms)
-Completed 200 OK in 1370ms (Views: 62.6ms)
-
-
-Started GET "/" for ::1 at 2020-08-15 10:34:06 +0700
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :contacts, class_name: 'Samurai::Contacts::Contact'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/contacts/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/contact_decorator.rb:3)
+Started GET "/" for ::1 at 2020-08-24 09:45:02 +0700
 Processing by Samurai::DashboardController#index as HTML
-Completed 406 Not Acceptable in 677ms
+Completed 401 Unauthorized in 60ms
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-24 09:45:02 +0700
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 42ms
 
 
   
-ActionController::UnknownFormat (Samurai::DashboardController#index is missing a template for this request format and variant.
-
-request.formats: ["text/html"]
-request.variant: []
-
-NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+ActiveRecord::NoDatabaseError (FATAL:  database "SamuraiCRM_development" does not exist
+):
   
-actionpack (5.1.7) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
-actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
-actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:709:in `rescue in connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:704:in `connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:229:in `initialize'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `new'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:761:in `new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:805:in `checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:784:in `try_to_checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:745:in `acquire_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:502:in `checkout'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:376:in `connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:933:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.7) lib/active_record/model_schema.rb:471:in `load_schema!'
+activerecord (5.1.7) lib/active_record/attributes.rb:233:in `load_schema!'
+activerecord (5.1.7) lib/active_record/attribute_decorators.rb:50:in `load_schema!'
+activerecord (5.1.7) lib/active_record/model_schema.rb:464:in `block in load_schema'
+/home/tammy/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+activerecord (5.1.7) lib/active_record/model_schema.rb:461:in `load_schema'
+activerecord (5.1.7) lib/active_record/model_schema.rb:353:in `attribute_types'
+activerecord (5.1.7) lib/active_record/attribute_methods.rb:179:in `has_attribute?'
+activerecord (5.1.7) lib/active_record/inheritance.rb:55:in `new'
+devise (4.7.2) app/controllers/devise/sessions_controller.rb:11:in `new'
 actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
 actionpack (5.1.7) lib/abstract_controller/base.rb:186:in `process_action'
 actionpack (5.1.7) lib/action_controller/metal/rendering.rb:30:in `process_action'
@@ -41,6 +59,8 @@ actionpack (5.1.7) lib/action_controller/metal.rb:189:in `dispatch'
 actionpack (5.1.7) lib/action_controller/metal.rb:253:in `dispatch'
 actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
 actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.7) lib/action_dispatch/routing/mapper.rb:46:in `serve'
 actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
 actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
 actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
@@ -54,6 +74,9 @@ actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
 actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
 actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
 actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
 rack (2.2.3) lib/rack/etag.rb:27:in `call'
 rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
 rack (2.2.3) lib/rack/head.rb:12:in `call'
@@ -92,44 +115,376 @@ puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
 puma (3.12.6) lib/puma/server.rb:476:in `process_client'
 puma (3.12.6) lib/puma/server.rb:334:in `block in run'
 puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
-Started GET "/" for ::1 at 2020-08-15 10:36:39 +0700
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :contacts, class_name: 'Samurai::Contacts::Contact'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/contacts/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/contact_decorator.rb:3)
+Started GET "/" for ::1 at 2020-08-24 17:39:00 +0700
 Processing by Samurai::DashboardController#index as HTML
-  Rendering engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application
-  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (5.7ms)
-Completed 200 OK in 2036ms (Views: 1441.0ms)
+Completed 401 Unauthorized in 152ms
 
 
-Started GET "/" for ::1 at 2020-08-15 17:04:40 +0700
-Processing by Samurai::DashboardController#index as HTML
-  Rendering engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application
-  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (12.2ms)
+Started GET "/users/sign_in" for ::1 at 2020-08-24 17:39:00 +0700
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 91ms
+
+
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "SamuraiCRM_development" does not exist
+):
+  
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:709:in `rescue in connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:704:in `connect'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:229:in `initialize'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `new'
+activerecord (5.1.7) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:761:in `new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:805:in `checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:784:in `try_to_checkout_new_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:745:in `acquire_connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:502:in `checkout'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:376:in `connection'
+activerecord (5.1.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:933:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.7) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.7) lib/active_record/model_schema.rb:471:in `load_schema!'
+activerecord (5.1.7) lib/active_record/attributes.rb:233:in `load_schema!'
+activerecord (5.1.7) lib/active_record/attribute_decorators.rb:50:in `load_schema!'
+activerecord (5.1.7) lib/active_record/model_schema.rb:464:in `block in load_schema'
+/home/tammy/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+activerecord (5.1.7) lib/active_record/model_schema.rb:461:in `load_schema'
+activerecord (5.1.7) lib/active_record/model_schema.rb:353:in `attribute_types'
+activerecord (5.1.7) lib/active_record/attribute_methods.rb:179:in `has_attribute?'
+activerecord (5.1.7) lib/active_record/inheritance.rb:55:in `new'
+devise (4.7.2) app/controllers/devise/sessions_controller.rb:11:in `new'
+actionpack (5.1.7) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.7) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.7) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.7) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.7) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.7) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.7) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.7) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.7) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.7) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.7) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.7) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.7) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.7) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+railties (5.1.7) lib/rails/railtie.rb:185:in `public_send'
+railties (5.1.7) lib/rails/railtie.rb:185:in `method_missing'
+actionpack (5.1.7) lib/action_dispatch/routing/mapper.rb:17:in `block in <class:Constraints>'
+actionpack (5.1.7) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :contacts, class_name: 'Samurai::Contacts::Contact'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/contacts/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/contact_decorator.rb:3)
+  [1m[35m (227.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (134.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(523650061002762120)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateSamuraiUsers (20200804070335)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (199.2ms)[0m  [1m[35mCREATE TABLE "samurai_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (51.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_samurai_users_on_email" ON "samurai_users"  ("email")[0m
+  [1m[35m (61.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_samurai_users_on_reset_password_token" ON "samurai_users"  ("reset_password_token")[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200804070335"]]
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminToSamuraiUsers (20200804075821)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "samurai_users" ADD "admin" boolean[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200804075821"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSamuraiContactsContacts (20200804160050)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.7ms)[0m  [1m[35mCREATE TABLE "samurai_contacts_contacts" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "company" character varying, "email" character varying, "phone" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b1d1888804"
+FOREIGN KEY ("user_id")
+  REFERENCES "samurai_users" ("id")
+)[0m
+  [1m[35m (47.9ms)[0m  [1m[35mCREATE  INDEX  "index_samurai_contacts_contacts_on_user_id" ON "samurai_contacts_contacts"  ("user_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200804160050"]]
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSamuraiTasksTasks (20200811074509)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (128.5ms)[0m  [1m[35mCREATE TABLE "samurai_tasks_tasks" ("id" bigserial primary key, "title" character varying, "content" text, "user_id" bigint, "contact_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4082a92b99"
+FOREIGN KEY ("user_id")
+  REFERENCES "samurai_users" ("id")
+, CONSTRAINT "fk_rails_bd4db0db74"
+FOREIGN KEY ("contact_id")
+  REFERENCES "samurai_contacts_contacts" ("id")
+)[0m
+  [1m[35m (49.3ms)[0m  [1m[35mCREATE  INDEX  "index_samurai_tasks_tasks_on_user_id" ON "samurai_tasks_tasks"  ("user_id")[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCREATE  INDEX  "index_samurai_tasks_tasks_on_contact_id" ON "samurai_tasks_tasks"  ("contact_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200811074509"]]
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-24 11:42:18.698728"], ["updated_at", "2020-08-24 11:42:18.698728"]]
+  [1m[35m (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(523650061002762120)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :contacts, class_name: 'Samurai::Contacts::Contact'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/contacts/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/contact_decorator.rb:3)
+Started GET "/users/sign_in" for ::1 at 2020-08-24 18:43:24 +0700
+Processing by Devise::SessionsController#new as HTML
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
+  Rendering engines/core/app/views/devise/sessions/new.html.erb within layouts/samurai/application
+  Rendered engines/core/app/views/devise/shared/_links.html.erb (4.6ms)
+  Rendered engines/core/app/views/devise/sessions/new.html.erb within layouts/samurai/application (130.4ms)
 DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
-https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _engines_core_app_views_layouts_samurai_application_html_erb__2270584219720302327_47324833926400 at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:5)
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _9ad25f6ec606033fae1b755d088cbe2c at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:6)
 DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
-https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _engines_core_app_views_layouts_samurai_application_html_erb__2270584219720302327_47324833926400 at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:5)
-Completed 200 OK in 23822ms (Views: 23024.8ms)
-
-
-Started GET "/" for ::1 at 2020-08-15 17:10:23 +0700
-Processing by Samurai::DashboardController#index as HTML
-  Rendering engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application
-  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (1.4ms)
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _9ad25f6ec606033fae1b755d088cbe2c at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:6)
 DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
-https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _engines_core_app_views_layouts_samurai_application_html_erb__2270584219720302327_69842720809040 at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:5)
-Completed 200 OK in 21799ms (Views: 21795.6ms)
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _9ad25f6ec606033fae1b755d088cbe2c at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:6)
+DEPRECATION WARNING: autoprefixer-rails was deprected. Migration guide:
+https://github.com/ai/autoprefixer-rails/wiki/Deprecated (called from _9ad25f6ec606033fae1b755d088cbe2c at /home/tammy/SamuraiCRM/engines/core/app/views/layouts/samurai/application.html.erb:6)
+Completed 200 OK in 47188ms (Views: 47039.9ms | ActiveRecord: 40.3ms)
 
 
-Started GET "/" for ::1 at 2020-08-15 17:11:16 +0700
+Started GET "/users/sign_up" for ::1 at 2020-08-24 18:45:08 +0700
+Processing by Devise::RegistrationsController#new as HTML
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
+  Rendering engines/core/app/views/devise/registrations/new.html.erb within layouts/samurai/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _c243d6aa83b0dce101900beeee58323f at /home/tammy/SamuraiCRM/engines/core/app/views/devise/registrations/new.html.erb:5)
+  Rendered engines/core/app/views/devise/shared/_links.html.erb (6.4ms)
+  Rendered engines/core/app/views/devise/registrations/new.html.erb within layouts/samurai/application (25.1ms)
+Completed 200 OK in 431ms (Views: 425.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-08-24 18:45:30 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2BP4GHaJpxwp1PWVXiU8kMoSMEy4W0jOnJE+RfM7UcHselQqO0dzfbGceEssFy9VF3k9sFmrLboazlibitFFvg==", "user"=>{"email"=>"nguyenthientam0808@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSamurai::User Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "samurai_users" WHERE "samurai_users"."email" = $1 LIMIT $2[0m  [["email", "nguyenthientam0808@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (18.2ms)[0m  [1m[32mINSERT INTO "samurai_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "nguyenthientam0808@gmail.com"], ["encrypted_password", "$2a$12$OXu4Vau3gy4o2zhIHp3x6OjBmonELr1LsYvECvRhvbVyxglKXRcae"], ["created_at", "2020-08-24 11:45:31.997333"], ["updated_at", "2020-08-24 11:45:31.997333"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1472ms (ActiveRecord: 27.2ms)
+
+
+Started GET "/" for ::1 at 2020-08-24 18:45:32 +0700
 Processing by Samurai::DashboardController#index as HTML
+  [1m[36mSamurai::User Load (2.3ms)[0m  [1m[34mSELECT  "samurai_users".* FROM "samurai_users" WHERE "samurai_users"."id" = $1 ORDER BY "samurai_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[1;32mDeface:[0m 2 overrides found for 'samurai/dashboard/index'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/contacts/engine_add_contacts_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 2 overrides found for 'samurai/dashboard/index'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/contacts/engine_add_contacts_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
   Rendering engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application
-  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (1.4ms)
-Completed 200 OK in 82ms (Views: 79.0ms)
+  [1m[36mSamurai::Tasks::Task Load (2.2ms)[0m  [1m[34mSELECT  "samurai_tasks_tasks".* FROM "samurai_tasks_tasks" WHERE "samurai_tasks_tasks"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  [1m[36mSamurai::Contacts::Contact Load (2.3ms)[0m  [1m[34mSELECT "samurai_contacts_contacts".* FROM "samurai_contacts_contacts" WHERE "samurai_contacts_contacts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (80.1ms)
+Completed 200 OK in 575ms (Views: 402.2ms | ActiveRecord: 21.8ms)
 
 
-Started GET "/" for ::1 at 2020-08-15 17:13:47 +0700
+Started GET "/tasks" for ::1 at 2020-08-24 18:45:43 +0700
+Processing by Samurai::Tasks::TasksController#index as HTML
+  [1m[36mSamurai::User Load (1.5ms)[0m  [1m[34mSELECT  "samurai_users".* FROM "samurai_users" WHERE "samurai_users"."id" = $1 ORDER BY "samurai_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
+  Rendering engines/tasks/app/views/samurai/tasks/tasks/index.html.erb within layouts/samurai/application
+  [1m[36mSamurai::Tasks::Task Load (1.4ms)[0m  [1m[34mSELECT "samurai_tasks_tasks".* FROM "samurai_tasks_tasks"[0m
+  Rendered engines/tasks/app/views/samurai/tasks/tasks/index.html.erb within layouts/samurai/application (9.3ms)
+Completed 200 OK in 304ms (Views: 289.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/contacts" for ::1 at 2020-08-24 18:45:50 +0700
+Processing by Samurai::Contacts::ContactsController#index as HTML
+  [1m[36mSamurai::User Load (1.6ms)[0m  [1m[34mSELECT  "samurai_users".* FROM "samurai_users" WHERE "samurai_users"."id" = $1 ORDER BY "samurai_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
+  Rendering engines/contacts/app/views/samurai/contacts/contacts/index.html.erb within layouts/samurai/application
+  [1m[36mSamurai::Contacts::Contact Load (0.9ms)[0m  [1m[34mSELECT "samurai_contacts_contacts".* FROM "samurai_contacts_contacts" WHERE "samurai_contacts_contacts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered engines/contacts/app/views/samurai/contacts/contacts/index.html.erb within layouts/samurai/application (9.6ms)
+Completed 200 OK in 347ms (Views: 331.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/edit" for ::1 at 2020-08-24 18:45:55 +0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mSamurai::User Load (3.3ms)[0m  [1m[34mSELECT  "samurai_users".* FROM "samurai_users" WHERE "samurai_users"."id" = $1 ORDER BY "samurai_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
+  Rendering engines/core/app/views/devise/registrations/edit.html.erb within layouts/samurai/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _c9aa7c8f214a6e0699fc14359963dd34 at /home/tammy/SamuraiCRM/engines/core/app/views/devise/registrations/edit.html.erb:5)
+  Rendered engines/core/app/views/devise/registrations/edit.html.erb within layouts/samurai/application (20.2ms)
+Completed 200 OK in 361ms (Views: 350.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-24 18:46:05 +0700
 Processing by Samurai::DashboardController#index as HTML
+  [1m[36mSamurai::User Load (2.4ms)[0m  [1m[34mSELECT  "samurai_users".* FROM "samurai_users" WHERE "samurai_users"."id" = $1 ORDER BY "samurai_users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[1;32mDeface:[0m 2 overrides found for 'samurai/dashboard/index'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/contacts/engine_add_contacts_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 2 overrides found for 'samurai/dashboard/index'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/contacts/engine_add_contacts_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_list_to_dashboard' matched 1 times with '[data-samurai-hook='dashboard']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_list_to_dashboard', you should change its definition to include:
+ :original => '71540dc41b16197481bbb7e2e31fe29a742b87de' 
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
   Rendering engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application
-  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (6.8ms)
-Completed 200 OK in 2493ms (Views: 1520.1ms)
+  [1m[36mSamurai::Tasks::Task Load (1.1ms)[0m  [1m[34mSELECT  "samurai_tasks_tasks".* FROM "samurai_tasks_tasks" WHERE "samurai_tasks_tasks"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 3]]
+  [1m[36mSamurai::Contacts::Contact Load (1.0ms)[0m  [1m[34mSELECT "samurai_contacts_contacts".* FROM "samurai_contacts_contacts" WHERE "samurai_contacts_contacts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered engines/core/app/views/samurai/dashboard/index.html.erb within layouts/samurai/application (17.3ms)
+Completed 200 OK in 536ms (Views: 424.8ms | ActiveRecord: 4.5ms)
+
+
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :contacts, class_name: 'Samurai::Contacts::Contact'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/contacts/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/user_decorator.rb:2)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `has_many :tasks, class_name: 'Samurai::Tasks::Task'` (called from block in <top (required)> at /home/tammy/SamuraiCRM/engines/tasks/app/decorators/models/contact_decorator.rb:3)
+Started GET "/products" for ::1 at 2020-08-25 09:37:37 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-08-25 09:37:45 +0700
+Processing by Samurai::DashboardController#index as HTML
+Completed 401 Unauthorized in 56ms
+
+
+Started GET "/users/sign_in" for ::1 at 2020-08-25 09:37:45 +0700
+Processing by Devise::SessionsController#new as HTML
+[1;32mDeface:[0m 2 overrides found for 'layouts/samurai/application'
+[1;32mDeface:[0m 'samurai/contacts/engine_add_contacts_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface:[0m 'samurai/tasks/engine_add_tasks_link_to_nav' matched 1 times with '[data-samurai-hook='main_nav']'
+[1;32mDeface: [WARNING][0m No :original defined for 'samurai/tasks/engine_add_tasks_link_to_nav', you should change its definition to include:
+ :original => 'f5fe48b6dc6986328e0b873b3ffa1b228dd52a7c' 
+  Rendering engines/core/app/views/devise/sessions/new.html.erb within layouts/samurai/application
+  Rendered engines/core/app/views/devise/shared/_links.html.erb (10.0ms)
+  Rendered engines/core/app/views/devise/sessions/new.html.erb within layouts/samurai/application (103.3ms)
+Completed 200 OK in 2977ms (Views: 1938.1ms | ActiveRecord: 881.6ms)
 
 
