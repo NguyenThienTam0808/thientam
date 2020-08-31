@@ -18,8 +18,8 @@ Rails.application.configure do
       port: 587,
       domain: "agilewebshop.herokuapp.com",
       authentication: "plain",
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"],
+      user_name: ENV["nguyenthientam0808@gmail.com"],
+      password: ENV["01688511036"],
       enable_starttls_auto: true
     }
   # Do not eager load code on boot.
