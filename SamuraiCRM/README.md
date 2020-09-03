@@ -12,7 +12,7 @@
 
 * Sign up acccount
 
-* Admin: hoangtu@gmail.com - hoangtu
+* Admin: nguyenthientam0808@gmail.com - nguyenthientam
 
 * Set Role Admin:
 

@@ -14,6 +14,6 @@
 
 * Create user:
 
-- User.create(name: 'hoangtu', password: 'hoangtu', password_confirmation: 'hoangtu')
+- User.create(name: 'nguyenthientam0808@gmail.com', password: '01688511036', password_confirmation: '01688511036')
 
 * Create data product: rails runner bin/create_dummy_products.rb
